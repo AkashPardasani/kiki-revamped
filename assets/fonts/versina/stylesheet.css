@@ -1,0 +1,144 @@
+@font-face {
+    font-family: 'Versina';
+    src: url('Versina-Black.eot');
+    src: local('Versina Black'), local('Versina-Black'),
+        url('Versina-Black.eot?#iefix') format('embedded-opentype'),
+        url('Versina-Black.woff2') format('woff2'),
+        url('Versina-Black.woff') format('woff'),
+        url('Versina-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Versina';
+    src: url('Versina-Bold.eot');
+    src: local('Versina Bold'), local('Versina-Bold'),
+        url('Versina-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Versina-Bold.woff2') format('woff2'),
+        url('Versina-Bold.woff') format('woff'),
+        url('Versina-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Versina';
+    src: url('Versina-Light.eot');
+    src: local('Versina Light'), local('Versina-Light'),
+        url('Versina-Light.eot?#iefix') format('embedded-opentype'),
+        url('Versina-Light.woff2') format('woff2'),
+        url('Versina-Light.woff') format('woff'),
+        url('Versina-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Versina Extra';
+    src: url('Versina-ExtraBoldIt.eot');
+    src: local('Versina Extra Bold Italic'), local('Versina-ExtraBoldIt'),
+        url('Versina-ExtraBoldIt.eot?#iefix') format('embedded-opentype'),
+        url('Versina-ExtraBoldIt.woff2') format('woff2'),
+        url('Versina-ExtraBoldIt.woff') format('woff'),
+        url('Versina-ExtraBoldIt.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Versina';
+    src: url('Versina-BlackIt.eot');
+    src: local('Versina Black Italic'), local('Versina-BlackIt'),
+        url('Versina-BlackIt.eot?#iefix') format('embedded-opentype'),
+        url('Versina-BlackIt.woff2') format('woff2'),
+        url('Versina-BlackIt.woff') format('woff'),
+        url('Versina-BlackIt.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Versina';
+    src: url('Versina-BoldIt.eot');
+    src: local('Versina Bold Italic'), local('Versina-BoldIt'),
+        url('Versina-BoldIt.eot?#iefix') format('embedded-opentype'),
+        url('Versina-BoldIt.woff2') format('woff2'),
+        url('Versina-BoldIt.woff') format('woff'),
+        url('Versina-BoldIt.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Versina';
+    src: url('Versina-LightIt.eot');
+    src: local('Versina Light Italic'), local('Versina-LightIt'),
+        url('Versina-LightIt.eot?#iefix') format('embedded-opentype'),
+        url('Versina-LightIt.woff2') format('woff2'),
+        url('Versina-LightIt.woff') format('woff'),
+        url('Versina-LightIt.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Versina';
+    src: url('Versina-Regular.eot');
+    src: local('Versina'), local('Versina-Regular'),
+        url('Versina-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Versina-Regular.woff2') format('woff2'),
+        url('Versina-Regular.woff') format('woff'),
+        url('Versina-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Versina Ornaments';
+    src: url('Versina-OrnamentsBlack.eot');
+    src: local('Versina Ornaments Black'), local('Versina-OrnamentsBlack'),
+        url('Versina-OrnamentsBlack.eot?#iefix') format('embedded-opentype'),
+        url('Versina-OrnamentsBlack.woff2') format('woff2'),
+        url('Versina-OrnamentsBlack.woff') format('woff'),
+        url('Versina-OrnamentsBlack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Versina Extra';
+    src: url('Versina-ExtraBold.eot');
+    src: local('Versina Extra Bold'), local('Versina-ExtraBold'),
+        url('Versina-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('Versina-ExtraBold.woff2') format('woff2'),
+        url('Versina-ExtraBold.woff') format('woff'),
+        url('Versina-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Versina';
+    src: url('Versina-RegularIt.eot');
+    src: local('Versina Italic'), local('Versina-RegularIt'),
+        url('Versina-RegularIt.eot?#iefix') format('embedded-opentype'),
+        url('Versina-RegularIt.woff2') format('woff2'),
+        url('Versina-RegularIt.woff') format('woff'),
+        url('Versina-RegularIt.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Versina Ornaments';
+    src: url('Versina-OrnamentsRegular.eot');
+    src: local('Versina Ornaments'), local('Versina-OrnamentsRegular'),
+        url('Versina-OrnamentsRegular.eot?#iefix') format('embedded-opentype'),
+        url('Versina-OrnamentsRegular.woff2') format('woff2'),
+        url('Versina-OrnamentsRegular.woff') format('woff'),
+        url('Versina-OrnamentsRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

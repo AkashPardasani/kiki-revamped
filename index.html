@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ScrollTrigger Clip-mask Animation | @Codegrid</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="./assets/fonts/versina/stylesheet.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script> 
+<link rel="stylesheet" href="https://unpkg.com/lenis@1.1.14/dist/lenis.css">
+
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="bg-[#F9E7DA] h-screen">
+        <!--navbar-->
+        <div class="fixed flex flex-row justify-between w-full">
+          <div class="flex flex-col m-8">
+            <img src="../assets/kik_light_logo.png" class="md:w-48 w-28 " alt="" />
+           
+          </div>
+         <div class="m-8 p-4 md:p-8 text-base md:text-xl font-extrabold tracking-wider text-black hover:text-[#E4AA81] transition-all duration-300 cursor-pointer transform hover:scale-105">
+          <span class="border-b-4 border-black hover:border-[#E4AA81] pb-2 transition-all duration-300">
+            <span class="hidden md:inline uppercase italic">Scroll Down to Rebel</span>
+            <span class="md:hidden uppercase">Rebel Awaits</span>
+          </span>
+         </div>
+ 
+        </div>
+        <!--logo-->
+        <div class="flex justify-center items-center h-screen w-screen ">
+          <img
+            src="./assets/kiki_light_1.png"
+            alt="KIK Light Logo"
+            class="w-auto h-auto mt-[-10rem] md:mt-0"
+          />
+        </div>
+
+        <!--bottombar-->
+        <div class="flex flex-col-reverse md:flex-row w-full justify-between absolute bottom-0 md:m-8 ">
+          <h1 class="flex md:text-3xl text-xl p-8 md:p-2 font-bold items-end text-center md:text-left justify-center md:justify-start w-auto md:w-[22rem]">
+            For the dusky daring and f*cking ravishing.
+          </h1>
+          <div class="flex flex-row gap-4 md:mr-20 p-2">
+            <img src="./assets/landing/img1.png" class="md:h-48 h-[8rem]" alt="" />
+            <img src="./assets/landing/img2.png" class="md:h-48 h-[8rem]" alt="" />
+            <img src="./assets/landing/img3.png" class="md:h-48 h-[8rem]" alt="" />
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="website-content">
+      
+      <div class="img-holder bg-black flex justify-center items-center">
+   
+    
+        <picture>
+          <source media="(min-width: 768px)" srcset="./assets/hero_bg.png" />
+          <img src="./assets/kiki-bg-mob.png" alt="Hero background" class="w-full h-auto" />
+        </picture>
+      </div>
+
+      <div class="content-holder">
+       <!--sticky navbar-->
+       <div class="sticky top-0 left-0 w-full flex flex-col bg-[#000000] z-50">
+         <div class="flex justify-between p-2 text-[#F9E7DA] items-center md:p-8">
+           <div class="flex items-center">
+             <img src="./assets/kiki-white.png" alt="KIK Logo" class="h-10 md:h-12 transition-transform duration-300 hover:scale-110" />
+           </div>
+           <div class="hidden md:flex items-center space-x-6 md:space-x-10 text-base md:text-lg font-bold">
+             <a href="#" class="hover:text-[#F9E7DA] transition-colors duration-300 border-b-2 border-transparent hover:border-[#F9E7DA] pb-1">Bestsellers</a>
+             <a href="#" class="hover:text-[#F9E7DA] transition-colors duration-300 border-b-2 border-transparent hover:border-[#F9E7DA] pb-1">Shop By Category</a>
+             <a href="#" class="hover:text-[#F9E7DA] transition-colors duration-300 border-b-2 border-transparent hover:border-[#F9E7DA] pb-1">Find your Shade</a>
+             <a href="#" class="hover:text-[#F9E7DA] transition-colors duration-300 border-b-2 border-transparent hover:border-[#F9E7DA] pb-1">Blogs</a>
+           </div>
+           <div class="hidden md:flex items-center space-x-4">
+             <a href="#" class="px-6 py-3 bg-[#F9E7DA] text-[#000000] border-2 border-[#F9E7DA] rounded-full text-base font-bold hover:bg-[#000000] hover:text-[#F9E7DA] transition-colors duration-300">Our Story</a>
+             <a href="#" class="px-6 py-3 bg-[#F9E7DA] text-[#000000] border-2 border-[#F9E7DA] rounded-full text-base font-bold hover:bg-[#000000] hover:text-[#F9E7DA] transition-colors duration-300">Our Ingredients</a>
+           </div>
+           <div class="md:hidden">
+             <button id="mobile-menu-button" class="text-[#F9E7DA] focus:outline-none">
+               <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+               </svg>
+             </button>
+           </div>
+         </div>
+         <div id="mobile-menu" class="hidden md:hidden bg-[#000000] w-full">
+           <div class="px-4 py-2 space-y-2">
+             <a href="#" class="block px-4 py-3 text-base font-medium text-[#F9E7DA] hover:bg-[#F9E7DA] hover:text-[#000000] rounded-lg transition-all duration-300 ease-in-out">Bestsellers</a>
+             <a href="#" class="block px-4 py-3 text-base font-medium text-[#F9E7DA] hover:bg-[#F9E7DA] hover:text-[#000000] rounded-lg transition-all duration-300 ease-in-out">Shop By Category</a>
+             <a href="#" class="block px-4 py-3 text-base font-medium text-[#F9E7DA] hover:bg-[#F9E7DA] hover:text-[#000000] rounded-lg transition-all duration-300 ease-in-out">Find your Shade</a>
+             <a href="#" class="block px-4 py-3 text-base font-medium text-[#F9E7DA] hover:bg-[#F9E7DA] hover:text-[#000000] rounded-lg transition-all duration-300 ease-in-out">Blogs</a>
+             <a href="#" class="block px-4 py-3 text-base font-medium text-[#F9E7DA] hover:bg-[#F9E7DA] hover:text-[#000000] rounded-lg transition-all duration-300 ease-in-out">Our Story</a>
+             <a href="#" class="block px-4 py-3 text-base font-medium text-[#F9E7DA] hover:bg-[#F9E7DA] hover:text-[#000000] rounded-lg transition-all duration-300 ease-in-out">Our Ingredients</a>
+           </div>
+         </div>
+       </div>
+       <script>
+         document.addEventListener('DOMContentLoaded', function() {
+           const mobileMenuButton = document.getElementById('mobile-menu-button');
+           const mobileMenu = document.getElementById('mobile-menu');
+           
+           mobileMenuButton.addEventListener('click', function() {
+             mobileMenu.classList.toggle('hidden');
+             mobileMenu.classList.toggle('animate-fade-in-down');
+           });
+         });
+       </script>
+       <style>
+         @keyframes fadeInDown {
+           from {
+             opacity: 0;
+             transform: translateY(-10px);
+           }
+           to {
+             opacity: 1;
+             transform: translateY(0);
+           }
+         }
+         .animate-fade-in-down {
+           animation: fadeInDown 0.3s ease-out;
+         }
+       </style>
+
+
+      <!--in our dna-->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-20 py-10 md:py-20 text-[#F9E7DA] bg-[#000000]">
+          <div class="p-4 md:p-16 transform rotate-2 bg-[#F9E7DA] shadow-lg">
+            <h1 class="text-5xl font-extrabold text-center uppercase tracking-wider mb-6 text-[#000000]">In Our DNA</h1>
+            <p class="mt-8 text-center text-xl md:text-2xl font-bold leading-relaxed text-[#000000]">
+              Growing up, you heard it all: 
+              <span class="italic font-light text-[#000000]">
+                "You'd be beautiful if you were fairer,"
+              </span> 
+              or 
+              <span class="italic font-light text-[#000000]">
+                "She's pretty, but dark."
+              </span> 
+              You spent years masking your rich, beautiful skin, hiding behind lighter shades, trying to fit a mold that was never made for you. But those days are over.
+            </p>
+          </div>
+          <div class="hidden md:grid grid-cols-3 gap-4 p-4">
+            <img src="https://www.simplynam.com/cdn/shop/articles/Untitled_design_20.jpg?v=1719911746" alt="Portrait 1" class="w-full h-full object-cover transform -rotate-3 hover:rotate-0 transition-transform duration-300 border-4 border-[#F9E7DA]" />
+            <img src="https://preview.redd.it/whats-with-dps-extra-darkened-makeup-these-days-i-know-she-v0-m7sdw18roah91.jpg?width=640&crop=smart&auto=webp&s=f5cbaf8e64722b482abe7f54d97a4dfff29747fe" alt="Portrait 2" class="w-full h-full object-cover transform rotate-3 hover:rotate-0 transition-transform duration-300 border-4 border-[#F9E7DA]" />
+            <img src="https://mymandap.in/wp-content/uploads/2022/02/dark-skin.jpg" alt="Portrait 3" class="w-full h-full object-cover transform -rotate-3 hover:rotate-0 transition-transform duration-300 border-4 border-[#F9E7DA]" />
+          </div>
+          <div class="hidden md:flex p-4 flex-row gap-8 items-center justify-center">
+            <img src="https://sdcdn.io/mac/ca/mac_sku_SYP813_1x1_0.png?width=1440&height=1440" alt="Foundation" class="h-[250px] w-auto object-contain transform hover:scale-110 transition-transform duration-300" />
+            <img src="https://sdcdn.io/mac/in/mac_sku_SRMX19_1x1_0.png?width=1440&height=1440" alt="MAC Product" class="h-[250px] w-auto object-contain transform hover:scale-110 transition-transform duration-300" />
+          </div>
+          <div class="p-4 text-center text-xl md:text-3xl bg-gradient-to-r from-[#F9E7DA] to-[#F9E7DA] transform -rotate-1">
+            <p class="font-extrabold text-[#000000]">
+              Kiki isn't just makeup—it's a rebellion. 
+              <span class="text-4xl md:text-5xl text-[#000000] block my-4">
+                A love letter to every dusky girl
+              </span> 
+              who's been overlooked or treated as an afterthought by the beauty industry.
+            </p>
+          </div>
+        </div>
+        <div class="p-8 text-center text-3xl md:text-4xl text-[#F9E7DA] bg-[#000000] md:px-40 md:py-16 mb-16">
+          <p class="font-extrabold leading-tight">
+            Kiki is for the 
+            <span class="text-5xl md:text-6xl text-[#F9E7DA] block my-6 transform -skew-y-3">
+              dusky, the daring, and the f**king ravishing
+            </span>
+            For the queens who are done hiding and ready to own their shade. We're not here to blend in, we're here to stand out.
+          </p>
+        </div>
+
+     <!--banner-->
+        <div class="w-full bg-[#000000] py-8 sm:py-12 md:py-16 lg:py-24 relative overflow-hidden">
+          <div class="w-11/12 mx-auto">
+            <a href="/products" class="block group relative overflow-hidden rounded-lg shadow-lg sm:shadow-xl md:shadow-2xl">
+              <img src="/assets/Banner 1.svg" alt="Banner" class="w-full h-auto object-cover transition-all duration-300 transform group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-center justify-center">
+                <span class="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-wider uppercase px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 bg-black bg-opacity-50 rounded-full border-2 border-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
+                  Explore Products
+                </span>
+              </div>
+            </a>
+          </div>
+          <div class="absolute -left-16 sm:-left-24 md:-left-32 -bottom-16 sm:-bottom-24 md:-bottom-32 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-[#F9E7DA] rounded-full opacity-10 blur-3xl"></div>
+          <div class="absolute -right-16 sm:-right-24 md:-right-32 -top-16 sm:-top-24 md:-top-32 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-[#F9E7DA] rounded-full opacity-10 blur-3xl"></div>
+        </div>
+
+        <!--get it before it's gone-->
+        <div
+  class="w-full h-auto min-h-[400px] p-16 flex justify-center items-center flex-col gap-16"
+  style="background-image: url('./assets/Rectangle 21.png'); background-size: cover; background-repeat: no-repeat; background-position: center;"
+>
+  <h1 class="text-[#F8F0DF] md:text-4xl text-2xl font-bold text-nowrap">
+    GET IT BEFORE IT’S GONE
+  </h1>
+  <div class="flex justify-center items-center gap-16 md:flex-row flex-col">
+    <div class="w-[350px] h-[650px] bg-black rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,231,218,0.3)] hover:scale-105 group relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-[#F9E7DA] to-transparent opacity-10 z-0"></div>
+        <div class="relative h-[400px] overflow-hidden z-10">
+            <img src="../assets/product1.png" alt="Natural Finish Foundation" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-transparent to-black opacity-70"></div>
+            <div class="absolute top-4 right-4 bg-[#F9E7DA] text-black font-black px-6 py-3 rounded-full text-xl shadow-md transform -rotate-3 group-hover:rotate-0 transition-transform duration-300">
+                $200
+            </div>
+        </div>
+        <div class="p-8 bg-black relative z-10 flex flex-col justify-between h-[250px]">
+            <div>
+                <h3 class="font-black text-[#F9E7DA] text-3xl mb-4 tracking-wide leading-tight uppercase">Natural Finish Foundation</h3>
+                <p class="text-[#F9E7DA] text-lg mb-6 font-bold">Defy norms. Own your shade.</p>
+            </div>
+            <div class="flex justify-between items-center">
+                <a href="" class="bg-[#F9E7DA] text-black font-black py-4 px-8 rounded-full flex items-center transition-all duration-300 hover:bg-[#E4AA81] hover:text-white text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 uppercase">
+                    Buy Now
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+                <a href="{url}" class="text-[#F9E7DA] text-lg font-bold hover:text-[#E4AA81] transition-colors duration-300 relative group uppercase">
+                    REBEL
+                    <span class="absolute bottom-0 left-0 w-0 h-1 bg-[#E4AA81] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </div>
+        </div>
+        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#F9E7DA] via-[#E4AA81] to-[#F9E7DA]"></div>
+        <div class="absolute bottom-0 right-0 w-full h-2 bg-gradient-to-r from-[#F9E7DA] via-[#E4AA81] to-[#F9E7DA]"></div>
+    </div>
+    <div class="w-[350px] h-[650px] bg-black rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,231,218,0.3)] hover:scale-105 group relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-[#F9E7DA] to-transparent opacity-10 z-0"></div>
+        <div class="relative h-[400px] overflow-hidden z-10">
+            <img src="../assets/product2.png" alt="Matte Lipstick" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-transparent to-black opacity-70"></div>
+            <div class="absolute top-4 right-4 bg-[#F9E7DA] text-black font-black px-6 py-3 rounded-full text-xl shadow-md transform -rotate-3 group-hover:rotate-0 transition-transform duration-300">
+                $150
+            </div>
+        </div>
+        <div class="p-8 bg-black relative z-10 flex flex-col justify-between h-[250px]">
+            <div>
+                <h3 class="font-black text-[#F9E7DA] text-3xl mb-4 tracking-wide leading-tight uppercase">Matte Lipstick</h3>
+                <p class="text-[#F9E7DA] text-lg mb-6 font-bold">Bold colors for bold statements.</p>
+            </div>
+            <div class="flex justify-between items-center">
+                <a href="" class="bg-[#F9E7DA] text-black font-black py-4 px-8 rounded-full flex items-center transition-all duration-300 hover:bg-[#E4AA81] hover:text-white text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 uppercase">
+                    Buy Now
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+                <a href="{url}" class="text-[#F9E7DA] text-lg font-bold hover:text-[#E4AA81] transition-colors duration-300 relative group uppercase">
+                    REBEL
+                    <span class="absolute bottom-0 left-0 w-0 h-1 bg-[#E4AA81] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </div>
+        </div>
+        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#F9E7DA] via-[#E4AA81] to-[#F9E7DA]"></div>
+        <div class="absolute bottom-0 right-0 w-full h-2 bg-gradient-to-r from-[#F9E7DA] via-[#E4AA81] to-[#F9E7DA]"></div>
+    </div>
+  </div>
+  </div>
+ <div class="w-full bg-[#000000] py-12 sm:py-16 md:py-20 lg:py-28 relative overflow-hidden">
+          <div class="w-11/12 max-w-6xl mx-auto">
+            <a href="/quiz" class="block group relative overflow-hidden rounded-2xl shadow-xl sm:shadow-2xl md:shadow-3xl transition-all duration-500 ease-in-out transform hover:scale-[1.02]">
+              <img src="/assets/Find My Shade.svg" alt="Banner" class="w-full h-auto object-cover transition-all duration-500 transform group-hover:scale-110" />
+              <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-0 group-hover:opacity-90 transition-opacity duration-500 flex items-center justify-center">
+                <span class="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-widest uppercase px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-black bg-opacity-70 rounded-full border-4 border-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out hover:bg-opacity-80">
+                  Take the Quiz
+                </span>
+              </div>
+            </a>
+          </div>
+          <div class="absolute -left-24 sm:-left-32 md:-left-40 -bottom-24 sm:-bottom-32 md:-bottom-40 w-64 h-64 sm:w-96 sm:h-96 md:w-128 md:h-128 bg-[#F9E7DA] rounded-full opacity-15 blur-4xl"></div>
+          <div class="absolute -right-24 sm:-right-32 md:-right-40 -top-24 sm:-top-32 md:-top-40 w-64 h-64 sm:w-96 sm:h-96 md:w-128 md:h-128 bg-[#F9E7DA] rounded-full opacity-15 blur-4xl"></div>
+        </div>
+
+
+
+  
+  <div class="flex flex-col justify-center items-center text-white md:p-8 p-2 m-4">
+  <div class="flex flex-row justify-evenly w-full gap-4">
+    <div class="md:text-xl text-sm font-bold">
+      NEW Weightless Skin <br />
+      Foundation
+    </div>
+    <div class="underline text-sm md:text-xl font-bold">Shop Now</div>
+    <div class="text-sm md:text-xl font-bold">#INMYSKIN</div>
+    <div class="underline md:text-xl text-sm font-bold">Explore More</div>
+  </div>
+  <div class="flex md:flex-row flex-col justify-evenly w-full items-center p-8 gap-4">
+    <div class="md:w-[600px] w-full flex flex-col justify-start my-4">
+      <img src="../../assets/showcase1.png" alt="showcase1" class="w-full h-full" />
+      <div class="flex flex-col justify-start my-2">
+        <div class="text-xl font-bold my-1">
+          See your best skin, not makeup
+        </div>
+        <div class="text-sm">
+          Foundation that goes all day, feels like nothing, and has you
+          covered without hiding your real beauty.
+        </div>
+      </div>
+    </div>
+
+    <div class="md:w-[600px] w-full flex flex-col justify-start my-4">
+      <img src="../../assets/showcase2.gif" alt="showcase1" class="w-full h-full" />
+      <div class="flex flex-col justify-start my-2">
+        <div class="text-xl font-bold my-1">
+          See your best skin, not makeup
+        </div>
+        <div class="text-sm">
+          Foundation that goes all day, feels like nothing, and has you
+          covered without hiding your real beauty.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flex flex-col justify-center items-center p-16 bg-gradient-to-b from-black via-[#1A0A0A] to-black">
+  <h1 class="text-[#F9E7DA] text-7xl font-extrabold mb-16 tracking-wider text-center uppercase relative">
+    Our Latest Blogs
+    <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-[#E4AA81]"></span>
+  </h1>
+  <div class="grid md:grid-cols-8 grid-cols-1 gap-10 w-full max-w-7xl px-4 md:px-0">
+    <div class="bg-gradient-to-br from-[#1A0A0A] to-black rounded-3xl md:col-span-5 flex md:flex-row flex-col justify-start overflow-hidden transition-all duration-300 transform hover:scale-[1.02] border border-[#E4AA81]">
+      <img
+        src="https://www.bobbibrown.in/media/export/cms/products/responsive/bb_sku_H819Y4_1x1_0.png?width=768&height=768"
+        alt="Foundation for Dusky Skin"
+        class="md:w-2/5 w-full h-96 object-cover"
+      />
+      <div class="flex flex-col justify-center items-start p-10">
+        <h2 class="text-[#F9E7DA] text-4xl font-black mb-6 leading-tight uppercase">
+          Top 10 Foundations for Dusky Skin Tones: Unleash Your Glow
+        </h2>
+        <p class="text-gray-300 text-xl mb-8 font-medium">
+          Discover the rebellious foundations that embrace and enhance dusky
+          skin tones, providing unapologetic coverage and a radiant finish. From
+          underground gems to high-end revolutionaries, find your perfect match.
+        </p>
+        <a href="/blog" class="bg-transparent text-[#E4AA81] font-bold py-4 px-10 border border-[#E4AA81] rounded-full hover:bg-[#E4AA81] hover:text-black transition-all duration-300 text-lg uppercase tracking-wider">
+          Read More
+        </a>
+      </div>
+    </div>
+    <div class="bg-gradient-to-br from-[#1A0A0A] to-black rounded-3xl md:col-span-3 flex flex-col justify-between overflow-hidden transition-all duration-300 transform hover:scale-[1.02] border border-[#E4AA81]">
+      <img
+        src="https://www.bobbibrown.in/media/export/cms/GNAV/Redesign_2022/Lip/Navigation-Lipstick_2x-1280x1280.png"
+        alt="Lipsticks for Dusky Skin"
+        class="w-full h-72 object-cover"
+      />
+      <div class="flex flex-col justify-center items-start p-8">
+        <h2 class="text-[#F9E7DA] text-3xl font-black mb-6 leading-tight uppercase">
+          Fierce Lipsticks for Dusky Skin: Bold, Defiant, Unstoppable
+        </h2>
+        <a href="/blog" class="text-[#E4AA81] text-xl font-bold hover:text-[#F9E7DA] transition-colors duration-300 flex items-center uppercase">
+          Read More <span class="ml-2 text-3xl">&rarr;</span>
+        </a>
+      </div>
+    </div>
+    <div class="bg-gradient-to-br from-[#1A0A0A] to-black rounded-3xl md:col-span-3 flex flex-col justify-between overflow-hidden transition-all duration-300 transform hover:scale-[1.02] border border-[#E4AA81]">
+      <img
+        src="https://www.bobbibrown.in/media/export/cms/GNAV/Redesign_2022/Eye/Navigation-EyeShadow_2x-1280x1280.png"
+        alt="Eyeshadows for Dusky Skin"
+        class="w-full h-72 object-cover"
+      />
+      <div class="flex flex-col justify-center items-start p-8">
+        <h2 class="text-[#F9E7DA] text-3xl font-black mb-6 leading-tight uppercase">
+          Eyeshadows for Dusky Skin: From Subtle Rebellion to Full-On Revolution
+        </h2>
+        <a href="/blog" class="text-[#E4AA81] text-xl font-bold hover:text-[#F9E7DA] transition-colors duration-300 flex items-center uppercase">
+          Read More <span class="ml-2 text-3xl">&rarr;</span>
+        </a>
+      </div>
+    </div>
+    <div class="bg-gradient-to-br from-[#1A0A0A] to-black rounded-3xl md:col-span-5 flex md:flex-row flex-col justify-start overflow-hidden transition-all duration-300 transform hover:scale-[1.02] border border-[#E4AA81]">
+      <img
+        src="https://www.bobbibrown.in/media/export/cms/products/responsive/bb_sku_EWY508_1x1_0.png?width=768&height=768"
+        alt="Concealers for Dusky Skin"
+        class="md:w-2/5 w-full h-96 object-cover"
+      />
+      <div class="flex flex-col justify-center items-start p-10">
+        <h2 class="text-[#F9E7DA] text-4xl font-black mb-6 leading-tight uppercase">
+          Rebel Concealers for Dusky Skin: Full Coverage, Zero Compromise
+        </h2>
+        <p class="text-gray-300 text-xl mb-8 font-medium">
+          Banish ashiness and embrace your true tone. Discover the revolutionary
+          concealers that provide full, fearless coverage for dusky skin. Learn how
+          to find your perfect shade and conquer dark spots with confidence.
+        </p>
+        <a href="/blog" class="bg-transparent text-[#E4AA81] font-bold py-4 px-10 border border-[#E4AA81] rounded-full hover:bg-[#E4AA81] hover:text-black transition-all duration-300 text-lg uppercase tracking-wider">
+          Read More
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-black text-[#F9E7DA] py-16">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-wrap justify-between items-start">
+      <div class="w-full md:w-1/4 mb-12 md:mb-0">
+        <img src="./assets/kiki-beauty-white.png" alt="Kiki Beauty Logo" class="h-16 md:h-20 lg:h-24 w-auto mb-6 transition-transform duration-300 hover:scale-105">
+        <p class="text-base font-medium italic">For the dusky daring and f*cking ravishing.</p>
+      </div>
+      <div class="w-full md:w-1/5 mb-10 md:mb-0">
+        <h3 class="text-xl font-bold mb-6 uppercase tracking-wider">Shop</h3>
+        <ul class="space-y-3">
+          <li><a href="#" class="hover:text-[#E4AA81] transition-colors duration-300 text-lg">Bestsellers</a></li>
+          <li><a href="#" class="hover:text-[#E4AA81] transition-colors duration-300 text-lg">New Arrivals</a></li>
+          <li><a href="#" class="hover:text-[#E4AA81] transition-colors duration-300 text-lg">Shop All</a></li>
+        </ul>
+      </div>
+      <div class="w-full md:w-1/5 mb-10 md:mb-0">
+        <h3 class="text-xl font-bold mb-6 uppercase tracking-wider">Help</h3>
+        <ul class="space-y-3">
+          <li><a href="#" class="hover:text-[#E4AA81] transition-colors duration-300 text-lg">Contact Us</a></li>
+          <li><a href="#" class="hover:text-[#E4AA81] transition-colors duration-300 text-lg">FAQs</a></li>
+          <li><a href="#" class="hover:text-[#E4AA81] transition-colors duration-300 text-lg">Shipping & Returns</a></li>
+        </ul>
+      </div>
+      <div class="w-full md:w-1/4">
+        <h3 class="text-xl font-bold mb-6 uppercase tracking-wider">Connect</h3>
+        <div class="flex space-x-6">
+          <a href="#" class="text-3xl hover:text-[#E4AA81] transition-colors duration-300 transform hover:scale-110"><i class="fa fa-instagram"></i></a>
+          <a href="#" class="text-3xl hover:text-[#E4AA81] transition-colors duration-300 transform hover:scale-110"><i class="fa fa-facebook"></i></a>
+          <a href="#" class="text-3xl hover:text-[#E4AA81] transition-colors duration-300 transform hover:scale-110"><i class="fa fa-twitter"></i></a>
+        </div>
+        <div class="mt-8">
+          <h4 class="text-lg font-semibold mb-4">Subscribe to our newsletter</h4>
+          <form class="flex">
+            <input disabled type="email" placeholder="Enter your email" class="cursor-not-allowed text-white px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-[#E4AA81] flex-grow">
+            <button disabled type="submit" class="cursor-not-allowed bg-[#E4AA81] text-black px-6 py-2 rounded-r-lg font-bold hover:bg-[#F9E7DA] transition-colors duration-300">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+      <p class="text-sm">&copy; 2023 Kiki Beauty. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+
+
+     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+
+      gsap.registerPlugin(ScrollTrigger);
+      // Initialize a new Lenis instance for smooth scrolling
+const lenis = new Lenis();
+
+// Listen for the 'scroll' event and log the event data to the console
+lenis.on('scroll', (e) => {
+  console.log(e);
+});
+
+// Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
+lenis.on('scroll', ScrollTrigger.update);
+
+// Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
+// This ensures Lenis's smooth scroll animation updates on each GSAP tick
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000); // Convert time from seconds to milliseconds
+});
+
+// Disable lag smoothing in GSAP to prevent any delay in scroll animations
+gsap.ticker.lagSmoothing(0);
+      ScrollTrigger.create({
+        trigger: ".website-content",
+        markers: {startColor: "transparent", endColor: "transparent", fontSize: "18px", fontWeight: "bold", indent: 20},
+        start: "-0.1% top",
+        end: "bottom bottom",
+        onEnter: () => {
+          gsap.set(".website-content", { position: "absolute", top: "195%" });
+          gsap.set(".header", {display: "none"})
+        },
+        onLeaveBack: () => {
+          gsap.set(".website-content", { position: "fixed", top: "0" });
+          gsap.set(".header", {display: "block"})
+        },
+      });
+
+      gsap.to(".img-holder", {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        ease: "power2.inOut",
+        scrollTrigger: {
+          start: "top top",
+          end: "+=200%",
+          scrub: 1,
+        },
+      });
+    </script>
+  </body>
+</html>
