@@ -17,6 +17,7 @@ html,
 body {
   font-family: "Neue Montreal";
   height: 100%;
+  background: #000;
 }
 
 h1 {
@@ -57,6 +58,7 @@ img {
   color: #fff;
 }
 .img-holder {
+  display: none;
   position: relative;
   top: 0;
   width: 100%;
