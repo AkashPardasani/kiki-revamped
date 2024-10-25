@@ -115,19 +115,19 @@
       <div class="content-holder">
        <!--sticky navbar-->
        <div class="sticky top-0 left-0 w-full flex flex-col bg-[#000000] bg-opacity-70 backdrop-filter backdrop-blur-lg z-50">
-         <div class="flex justify-between p-2 md:p-6 text-[#F9E7DA] items-center">
-           <div class="flex items-center">
+         <div class="flex justify-between items-center p-4">
+           <div class=" flex justify-start">
              <img src="./assets/kiki-white.png" alt="KIK Logo" class="h-8 md:h-8 lg:h-10 transition-transform duration-300 hover:scale-110 w-auto" />
            </div>
-           <div class="hidden md:flex items-center space-x-6 md:space-x-10 text-sm md:text-base font-bold">
-             <a href="#" class="hover:text-[#F9E7DA] transition-colors duration-300 border-b-2 border-transparent hover:border-[#F9E7DA] pb-1">Bestsellers</a>
-             <a href="#" class="hover:text-[#F9E7DA] transition-colors duration-300 border-b-2 border-transparent hover:border-[#F9E7DA] pb-1">Shop By Category</a>
+           <div class="hidden md:flex items-center justify-center flex-1 space-x-6 md:space-x-10 text-sm md:text-base font-bold">
+             <!-- Centered middle section -->
              <a href="#" class="hover:text-[#F9E7DA] transition-colors duration-300 border-b-2 border-transparent hover:border-[#F9E7DA] pb-1">Find your Shade</a>
              <a href="#" class="hover:text-[#F9E7DA] transition-colors duration-300 border-b-2 border-transparent hover:border-[#F9E7DA] pb-1">Blogs</a>
+                          <a href="#" class="hover:text-[#F9E7DA] transition-colors duration-300 border-b-2 border-transparent hover:border-[#F9E7DA] pb-1">Our Story</a>
+
            </div>
-           <div class="hidden md:flex items-center space-x-4">
-             <a href="#" class="px-4 py-2 bg-[#F9E7DA] text-[#000000] border-2 border-[#F9E7DA] rounded-full text-sm font-bold hover:bg-[#000000] hover:text-[#F9E7DA] transition-colors duration-300">Our Story</a>
-             <a href="#" class="px-4 py-2 bg-[#F9E7DA] text-[#000000] border-2 border-[#F9E7DA] rounded-full text-sm font-bold hover:bg-[#000000] hover:text-[#F9E7DA] transition-colors duration-300">Our Ingredients</a>
+           <div class=" min-w-[200px] flex justify-end space-x-4">
+             <a href="https://shop.kikibeauty.in" class="px-4 py-2 bg-[#F9E7DA] text-[#000000] border-2 border-[#F9E7DA] rounded-full text-sm font-bold hover:bg-[#000000] hover:text-[#F9E7DA] transition-colors duration-300">Shop Now</a>
            </div>
            <div class="md:hidden">
              <button id="mobile-menu-button" class="text-[#F9E7DA] focus:outline-none">
@@ -139,8 +139,6 @@
          </div>
          <div id="mobile-menu" class="hidden md:hidden bg-[#000000] bg-opacity-70 backdrop-filter backdrop-blur-lg w-full">
            <div class="px-4 py-2 space-y-2">
-             <a href="#" class="block px-4 py-3 text-base font-medium text-[#F9E7DA] hover:bg-[#F9E7DA] hover:text-[#000000] rounded-lg transition-all duration-300 ease-in-out">Bestsellers</a>
-             <a href="#" class="block px-4 py-3 text-base font-medium text-[#F9E7DA] hover:bg-[#F9E7DA] hover:text-[#000000] rounded-lg transition-all duration-300 ease-in-out">Shop By Category</a>
              <a href="#" class="block px-4 py-3 text-base font-medium text-[#F9E7DA] hover:bg-[#F9E7DA] hover:text-[#000000] rounded-lg transition-all duration-300 ease-in-out">Find your Shade</a>
              <a href="#" class="block px-4 py-3 text-base font-medium text-[#F9E7DA] hover:bg-[#F9E7DA] hover:text-[#000000] rounded-lg transition-all duration-300 ease-in-out">Blogs</a>
              <a href="#" class="block px-4 py-3 text-base font-medium text-[#F9E7DA] hover:bg-[#F9E7DA] hover:text-[#000000] rounded-lg transition-all duration-300 ease-in-out">Our Story</a>
@@ -206,7 +204,7 @@
               Kiki isn't just makeup—it's a rebellion. 
               <span class="text-4xl md:text-5xl text-[#000000] block my-4">
                 A love letter to every dusky girl
-              </span> 
+              </span>
               who's been overlooked or treated as an afterthought by the beauty industry.
             </p>
           </div>
@@ -314,7 +312,7 @@
 
             // Auto-play with requestAnimationFrame for smoother transitions
             let lastTime = 0;
-            const interval = 5000;
+            const interval = 8000;
 
             function autoPlay(currentTime) {
               if (!lastTime) lastTime = currentTime;
