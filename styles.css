@@ -6,7 +6,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Calibri", sans-serif;
+  font-family: "Helvetica", sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -15,7 +15,7 @@ html {
 
 html,
 body {
-  font-family: "Neue Montreal";
+  font-family: "Helvetica", sans-serif;
   height: 100%;
   background: #000;
 }
