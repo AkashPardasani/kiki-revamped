@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Vanitas";
+  src: url("./assets/fonts/vanitas/vanitas.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   overscroll-behavior: none;
 }
@@ -21,6 +28,7 @@ body {
 }
 
 h1 {
+  font-family: "Vanitas", sans-serif;
   font-size: 80px;
   font-weight: 400;
   text-transform: uppercase;
