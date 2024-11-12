@@ -627,17 +627,29 @@
   </div>
 
 <div class="flex flex-col justify-center items-center p-4 sm:p-8 md:p-16 bg-gradient-to-b from-black via-[#1A0A0A] to-black relative overflow-hidden">
+  <!-- Background texture -->
   <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-  <h1 class="text-[#F9E7DA] text-3xl sm:text-5xl md:text-7xl font-extrabold mb-8 sm:mb-12 md:mb-16 tracking-wider text-center uppercase relative z-10">
-    Our Latest Blogs
-    <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 sm:w-28 md:w-32 h-1 bg-[#E4AA81] animate-pulse"></span>
-  </h1>
+  
+  <!-- Section Title -->
+  <div class="text-center mb-12 md:mb-20 relative z-10">
+    <h1 class="text-[#F9E7DA] text-3xl sm:text-5xl md:text-7xl font-['Vanitas'] tracking-wider uppercase">
+      Our Latest Blogs
+    </h1>
+    <div class="w-24 sm:w-32 h-1 bg-[#E4AA81] mx-auto mt-4 animate-pulse"></div>
+    <p class="text-[#F9E7DA]/70 text-lg sm:text-xl mt-6 max-w-2xl mx-auto">
+      Discover beauty tips, trends, and stories that celebrate every shade of you
+    </p>
+  </div>
   
   <!-- Blog Grid Container -->
-  <div id="blogContainer" class="grid grid-cols-1 md:grid-cols-10 gap-6 sm:gap-8 md:gap-10 w-full max-w-7xl px-4 md:px-0 relative z-10">
+  <div id="blogContainer" class="grid grid-cols-1 md:grid-cols-10 gap-8 md:gap-10 w-full max-w-7xl relative z-10">
     <!-- Loading state -->
-    <div class="loading-state col-span-full text-center py-8">
-      <p class="text-white text-lg">Loading blogs...</p>
+    <div class="loading-state col-span-full flex flex-col items-center justify-center py-20">
+      <svg class="animate-spin h-8 w-8 text-[#E4AA81]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+      <p class="text-[#F9E7DA]/70 text-lg mt-4">Loading latest stories...</p>
     </div>
   </div>
 </div>
@@ -790,22 +802,21 @@ function generateBlogHTML(blog, index) {
   // First blog (large card)
   if (index === 0) {
     return `
-      <div class="md:col-span-4 bg-gradient-to-br from-[#1A0A0A] to-black rounded-3xl flex flex-col justify-start overflow-hidden transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#E4AA81]/30 border border-[#E4AA81] h-full">
+      <div class="md:col-span-4 bg-gradient-to-br from-[#1A0A0A] to-black rounded-3xl overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(228,170,129,0.2)] border border-[#E4AA81]/30 hover:border-[#E4AA81] group">
         <div class="h-[300px] md:h-[400px] overflow-hidden">
-          <img src="${blog.img}" loading="lazy" alt="${blog.title}" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"/>
+          <img src="${blog.img}" loading="lazy" alt="${blog.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
         </div>
-        <div class="flex flex-col justify-between p-6 sm:p-8 flex-grow">
-          <div>
-            <h2 class="text-[#F9E7DA] text-2xl sm:text-3xl md:text-4xl font-['Vanitas'] mb-4 sm:mb-6 leading-tight uppercase line-clamp-2">
-              ${blog.title}
-            </h2>
-            <p class="text-gray-300 text-base sm:text-lg md:text-xl mb-6 sm:mb-8 font-medium line-clamp-3">
-              ${stripHtml(blog.shortContent).substring(0, 150)}...
-            </p>
-          </div>
-          <a href="https://shop.kikibeauty.in/blog/${blog.id}" class="group bg-transparent text-[#E4AA81] font-bold py-3 sm:py-4 px-6 sm:px-8 border border-[#E4AA81] rounded-full hover:bg-[#E4AA81] hover:text-black transition-all duration-300 text-base sm:text-lg uppercase tracking-wider flex items-center w-fit">
-            Read More
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="p-6 sm:p-8 flex flex-col h-[calc(100%-400px)]">
+          <span class="text-[#E4AA81] text-sm font-medium tracking-wider uppercase mb-3">Featured Story</span>
+          <h2 class="text-[#F9E7DA] text-2xl sm:text-3xl md:text-4xl font-['Vanitas'] mb-4 leading-tight uppercase line-clamp-2 group-hover:text-[#E4AA81] transition-colors duration-300">
+            ${blog.title}
+          </h2>
+          <p class="text-[#F9E7DA]/70 text-base sm:text-lg flex-grow mb-6 line-clamp-3">
+            ${stripHtml(blog.shortContent).substring(0, 150)}...
+          </p>
+          <a href="https://shop.kikibeauty.in/blog/${blog.id}" class="group/btn bg-transparent text-[#E4AA81] font-bold py-3 px-6 border border-[#E4AA81] rounded-full hover:bg-[#E4AA81] hover:text-black transition-all duration-300 text-base uppercase tracking-wider flex items-center w-fit">
+            Read Article
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </a>
@@ -817,35 +828,36 @@ function generateBlogHTML(blog, index) {
   // Second and third blogs (wide cards)
   if (index === 1 || index === 2) {
     return `
-      <div class="md:col-span-6 bg-gradient-to-br from-[#1A0A0A] to-black rounded-3xl flex flex-col md:flex-row justify-start overflow-hidden transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#E4AA81]/30 border border-[#E4AA81] h-full">
-        ${index === 1 ? `
-          <div class="md:w-1/2 h-[300px] md:h-auto overflow-hidden">
-            <img src="${blog.img}" loading="lazy" alt="${blog.title}" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"/>
+      <div class="md:col-span-6 bg-gradient-to-br from-[#1A0A0A] to-black rounded-3xl overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(228,170,129,0.2)] border border-[#E4AA81]/30 hover:border-[#E4AA81] group">
+        <div class="flex flex-col md:flex-row h-full">
+          ${index === 1 ? `
+            <div class="md:w-1/2 h-[300px] md:h-auto overflow-hidden">
+              <img src="${blog.img}" loading="lazy" alt="${blog.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+            </div>
+          ` : ''}
+          <div class="md:w-1/2 p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <span class="text-[#E4AA81] text-sm font-medium tracking-wider uppercase mb-3">Latest Post</span>
+              <h2 class="text-[#F9E7DA] text-2xl sm:text-3xl font-['Vanitas'] mb-4 leading-tight uppercase line-clamp-2 group-hover:text-[#E4AA81] transition-colors duration-300">
+                ${blog.title}
+              </h2>
+              <p class="text-[#F9E7DA]/70 text-base sm:text-lg mb-6 line-clamp-3">
+                ${stripHtml(blog.shortContent).substring(0, 150)}...
+              </p>
+            </div>
+            <a href="https://shop.kikibeauty.in/blog/${blog.id}" class="group/btn bg-transparent text-[#E4AA81] font-bold py-3 px-6 border border-[#E4AA81] rounded-full hover:bg-[#E4AA81] hover:text-black transition-all duration-300 text-base uppercase tracking-wider flex items-center w-fit">
+              Read Article
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
           </div>
-          <div class="flex flex-col justify-between p-6 sm:p-8 md:p-10 flex-grow">
-        ` : `
-          <div class="flex flex-col justify-between p-6 sm:p-8 md:p-10 md:w-1/2 flex-grow">
-        `}
-          <div>
-            <h2 class="text-[#F9E7DA] text-2xl sm:text-3xl md:text-4xl font-['Vanitas'] mb-4 sm:mb-6 leading-tight uppercase line-clamp-2">
-              ${blog.title}
-            </h2>
-            <p class="text-gray-300 text-base sm:text-lg md:text-xl mb-6 sm:mb-8 font-medium line-clamp-3">
-              ${stripHtml(blog.shortContent).substring(0, 150)}...
-            </p>
-          </div>
-          <a href="https://shop.kikibeauty.in/blog/${blog.id}" class="group bg-transparent text-[#E4AA81] font-bold py-3 sm:py-4 px-6 sm:px-8 md:px-10 border border-[#E4AA81] rounded-full hover:bg-[#E4AA81] hover:text-black transition-all duration-300 text-base sm:text-lg uppercase tracking-wider flex items-center w-fit">
-            Read More
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
+          ${index === 2 ? `
+            <div class="md:w-1/2 h-[300px] md:h-auto overflow-hidden">
+              <img src="${blog.img}" loading="lazy" alt="${blog.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+            </div>
+          ` : ''}
         </div>
-        ${index === 2 ? `
-          <div class="md:w-1/2 h-[300px] md:h-auto overflow-hidden">
-            <img src="${blog.img}" loading="lazy" alt="${blog.title}" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"/>
-          </div>
-        ` : ''}
       </div>
     `;
   }
@@ -853,17 +865,20 @@ function generateBlogHTML(blog, index) {
   // Fourth blog (small card)
   if (index === 3) {
     return `
-      <div class="md:col-span-4 bg-gradient-to-br from-[#1A0A0A] to-black rounded-3xl flex flex-col justify-between overflow-hidden transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#E4AA81]/30 border border-[#E4AA81] h-full">
+      <div class="md:col-span-4 bg-gradient-to-br from-[#1A0A0A] to-black rounded-3xl overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(228,170,129,0.2)] border border-[#E4AA81]/30 hover:border-[#E4AA81] group">
         <div class="h-[250px] md:h-[300px] overflow-hidden">
-          <img src="${blog.img}" loading="lazy" alt="${blog.title}" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"/>
+          <img src="${blog.img}" loading="lazy" alt="${blog.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
         </div>
-        <div class="flex flex-col justify-between p-6 sm:p-8 flex-grow">
-          <h2 class="text-[#F9E7DA] text-xl sm:text-2xl md:text-3xl font-['Vanitas'] mb-4 sm:mb-6 leading-tight uppercase line-clamp-2">
-            ${blog.title}
-          </h2>
-          <a href="https://shop.kikibeauty.in/blog/${blog.id}" class="group text-[#E4AA81] text-lg sm:text-xl font-bold hover:text-[#F9E7DA] transition-colors duration-300 flex items-center uppercase">
-            Read More 
-            <span class="ml-2 text-2xl sm:text-3xl group-hover:ml-4 transition-all duration-300">&rarr;</span>
+        <div class="p-6 sm:p-8 flex flex-col justify-between">
+          <div>
+            <span class="text-[#E4AA81] text-sm font-medium tracking-wider uppercase mb-3">Editor's Pick</span>
+            <h2 class="text-[#F9E7DA] text-xl sm:text-2xl font-['Vanitas'] mb-4 leading-tight uppercase line-clamp-2 group-hover:text-[#E4AA81] transition-colors duration-300">
+              ${blog.title}
+            </h2>
+          </div>
+          <a href="https://shop.kikibeauty.in/blog/${blog.id}" class="group/btn text-[#E4AA81] text-lg font-bold hover:text-[#F9E7DA] transition-colors duration-300 flex items-center uppercase">
+            Read Article 
+            <span class="ml-2 text-2xl transform group-hover/btn:translate-x-2 transition-transform duration-300">&rarr;</span>
           </a>
         </div>
       </div>
