@@ -8,6 +8,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <link rel="stylesheet" href="./assets/fonts/helvetica/stylesheet.css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -47,6 +51,21 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
     <link rel="preconnect" href="https://unpkg.com" crossorigin />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-EKVNLCL1MD"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-EKVNLCL1MD");
+    </script>
   </head>
 
   <body>
@@ -91,6 +110,19 @@
               fetchpriority="high"
             />
           </div>
+
+          <div
+            class="reveal-text absolute md:top-8 md:right-8 top-4 right-4 text-black/60 font-light tracking-wider text-center md:text-right transform transition-all duration-300 hover:scale-105"
+          >
+            <span
+              class="desktop-text hidden md:inline text-lg font-medium hover:text-black transition-all duration-300 hover:tracking-widest"
+              >Click on the logo to reveal</span
+            >
+            <span
+              class="mobile-text md:hidden text-base font-medium hover:text-black transition-all duration-300 hover:tracking-widest"
+              >Tap the logo to reveal</span
+            >
+          </div>
         </div>
         <!--logo-->
         <div
@@ -100,82 +132,16 @@
             id="particles-js"
             class="absolute inset-0 pointer-events-none"
           ></div>
-          <img
-            src="./assets/landing_logo.png"
-            alt="KIK Light Logo"
-            class="w-auto h-auto max-w-[50%] xs:max-w-[55%] sm:max-w-[70%] md:max-w-[60%] relative z-10 animate-pulse mb-12"
-            id="logo"
-          />
           <div
-            class="scroll-trigger relative z-10 mt-12 cursor-pointer group perspective"
+            class="logo-container relative z-10 cursor-pointer group"
+            onclick="handleGetStarted()"
           >
-            <button
-              id="getStartedBtn"
-              onclick="handleGetStarted()"
-              class="relative flex items-center justify-center px-12 py-5 overflow-hidden font-extrabold rounded-full group bg-gradient-to-br from-[#D18E6C] to-[#E4AA81] text-white shadow-2xl transition-all duration-500 hover:shadow-[0_0_40px_rgba(209,142,108,0.4)] transform-gpu"
-            >
-              <svg
-                class="button-border"
-                width="100%"
-                height="100%"
-                viewBox="0 0 100 100"
-                preserveAspectRatio="none"
-              >
-                <path
-                  class="border-path"
-                  d="M0,0 L100,0 L100,100 L0,100 Z"
-                  fill="none"
-                  stroke="rgba(255,255,255,0.2)"
-                  stroke-width="0.5"
-                />
-              </svg>
-
-              <svg
-                class="button-blob"
-                viewBox="0 0 200 200"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path fill="rgba(228,170,129,0.2)" transform-origin="center">
-                  <animate
-                    attributeName="d"
-                    dur="10s"
-                    repeatCount="indefinite"
-                    values="M44.6,-76.3C59.3,-69.9,73.9,-60.5,81.9,-47.1C89.9,-33.7,91.2,-16.8,89.3,-1.1C87.4,14.7,82.2,29.4,74.1,42.5C65.9,55.6,54.8,67.1,41.3,74.7C27.8,82.4,13.9,86.2,-0.4,86.9C-14.7,87.6,-29.4,85.2,-43,78.7C-56.6,72.2,-69,61.6,-77.7,47.9C-86.3,34.2,-91.2,17.1,-90.8,0.2C-90.4,-16.7,-84.8,-33.3,-75.5,-47.2C-66.2,-61.1,-53.3,-72.2,-38.8,-78.7C-24.3,-85.2,-8.1,-87.1,4.1,-94.3C16.3,-101.6,32.6,-114.2,44.6,-76.3Z;
-                    M43.3,-73.6C57.9,-67.3,72.9,-58.9,81.6,-46C90.3,-33,92.8,-16.5,90.6,-1.3C88.4,14,81.5,28,73.1,41.1C64.7,54.2,54.8,66.5,41.7,74.4C28.6,82.4,14.3,86.1,0.1,85.9C-14.1,85.7,-28.2,81.6,-41.7,74.6C-55.2,67.5,-68.1,57.4,-77.5,44.1C-86.9,30.8,-92.8,14.4,-92.1,-1.7C-91.3,-17.8,-83.9,-35.5,-73.6,-49.8C-63.3,-64.1,-50,-74.9,-35.6,-81.1C-21.2,-87.3,-5.3,-88.9,8.5,-102.8C22.3,-116.7,44.6,-143,43.3,-73.6Z;
-                    M44.6,-76.3C59.3,-69.9,73.9,-60.5,81.9,-47.1C89.9,-33.7,91.2,-16.8,89.3,-1.1C87.4,14.7,82.2,29.4,74.1,42.5C65.9,55.6,54.8,67.1,41.3,74.7C27.8,82.4,13.9,86.2,-0.4,86.9C-14.7,87.6,-29.4,85.2,-43,78.7C-56.6,72.2,-69,61.6,-77.7,47.9C-86.3,34.2,-91.2,17.1,-90.8,0.2C-90.4,-16.7,-84.8,-33.3,-75.5,-47.2C-66.2,-61.1,-53.3,-72.2,-38.8,-78.7C-24.3,-85.2,-8.1,-87.1,4.1,-94.3C16.3,-101.6,32.6,-114.2,44.6,-76.3Z"
-                  />
-                </path>
-              </svg>
-
-              <!-- Animated background layers -->
-              <div
-                class="absolute inset-0 w-full h-full bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"
-              ></div>
-              <div
-                class="absolute -inset-1 bg-gradient-to-br from-[#D18E6C] to-[#E4AA81] rounded-full blur-lg opacity-30 group-hover:opacity-75 transition-all duration-500 group-hover:blur-xl transform-gpu"
-              ></div>
-
-              <!-- Shine effect -->
-              <div
-                class="absolute inset-0 w-full h-full transition-all duration-500"
-              >
-                <div
-                  class="absolute top-0 left-0 w-2/5 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[45deg] transform -translate-x-full group-hover:translate-x-[500%] transition-transform duration-1000 ease-out"
-                ></div>
-              </div>
-
-              <!-- Text content -->
-              <span
-                class="relative text-base md:text-xl uppercase tracking-wider transition-all duration-500 group-hover:tracking-widest group-hover:scale-105"
-              >
-                Get Started
-              </span>
-
-              <!-- Particle effects container -->
-              <div
-                class="particles-container absolute inset-0 pointer-events-none"
-              ></div>
-            </button>
+            <img
+              src="./assets/landing_logo.png"
+              alt="KIK Light Logo"
+              class="w-auto h-auto max-w-[50%] xs:max-w-[55%] sm:max-w-[70%] md:max-w-[60%] relative z-10 mb-12 transform transition-all duration-500"
+              id="logo"
+            />
           </div>
         </div>
         <style>
@@ -205,7 +171,7 @@
           <h1
             class="flex md:text-3xl text-xl p-8 md:p-4 font-['Vanitas'] items-end text-center md:text-left justify-center md:justify-start w-auto md:w-[22rem] text-black"
           >
-            For the dusky daring and f*cking ravishing.
+            We Make Beauty products...
           </h1>
           <div class="flex flex-row gap-4 md:mr-20 p-4">
             <img
@@ -1314,61 +1280,30 @@
         const header = document.getElementById("header");
         const websiteContent = document.querySelector(".website-content");
         const motoImg = document.querySelector("#moto-img");
-        const button = document.getElementById("getStartedBtn");
         const logo = document.getElementById("logo");
         const bottomBar = document.querySelector(".bottom-0");
         const headerBg = document.querySelector(".bg-gradient-to-b");
+        const logoContainer = document.querySelector(".logo-container");
 
-        // Disable button
-        button.disabled = true;
+        // Disable logo click
+        logoContainer.style.pointerEvents = "none";
 
         // Create and append overlay for flash effect
         const flashOverlay = document.createElement("div");
         flashOverlay.className = "flash-overlay";
         document.body.appendChild(flashOverlay);
 
-        // Create particles burst effect
-        const createParticles = () => {
-          const particlesContainer = document.createElement("div");
-          particlesContainer.className = "particles-burst";
-          button.appendChild(particlesContainer);
-
-          for (let i = 0; i < 12; i++) {
-            const particle = document.createElement("div");
-            particle.className = "particle";
-            particlesContainer.appendChild(particle);
-          }
-        };
-
         // Initial animations sequence
-        const tl = gsap.timeline();
+        const tl = gsap.timeline({
+          defaults: { ease: "power3.inOut" },
+        });
 
-        // Create particles
-        createParticles();
-
-        // Button click effect
-        tl.to(button, {
+        // Logo click effect
+        tl.to(logoContainer, {
           scale: 0.95,
-          duration: 0.2,
-          ease: "power2.out",
+          duration: 0.3,
+          ease: "elastic.out(1, 0.3)",
         })
-
-          // Trigger particles burst
-          .to(
-            ".particle",
-            {
-              opacity: 1,
-              scale: 0,
-              x: "random(-100, 100)",
-              y: "random(-100, 100)",
-              duration: 0.8,
-              ease: "power4.out",
-              stagger: {
-                amount: 0.2,
-              },
-            },
-            "-=0.2"
-          )
 
           // Animate header background
           .to(
@@ -1500,26 +1435,7 @@
           },
         });
 
-        // Create morphing effect
-        const morphTimeline = gsap.timeline();
-        morphTimeline
-          .to(".button-blob path", {
-            scale: 2,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power2.out",
-          })
-          .to(".button-blob path", {
-            scale: 20,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power2.in",
-          });
-
-        // Add to existing timeline
-        tl.add(morphTimeline, "-=0.8");
-
-        // Add floating SVG elements
+        // Create floating SVG elements
         const createFloatingSVG = () => {
           const svg = document.createElementNS(
             "http://www.w3.org/2000/svg",
