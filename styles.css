@@ -7,6 +7,7 @@
 
 html {
   overscroll-behavior: none;
+  scroll-behavior: smooth;
 }
 
 * {
@@ -43,42 +44,93 @@ img {
 
 .header {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
+  top: 0;
+  left: 0;
   width: 100%;
-  z-index: 0;
+  height: 100vh;
+  z-index: 50;
+  opacity: 1;
+  transition: opacity 0.8s ease-in-out;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.header.fade-out {
+  opacity: 0;
 }
 
 .website-content {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  min-height: 100vh;
+  position: relative;
+  z-index: 40;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.website-content.visible {
+  opacity: 1;
 }
 
 .content-holder {
-  position: relative;
-  top: -5px;
   width: 100%;
   background: #000;
   color: #fff;
 }
 .img-holder {
-  display: none;
+  display: block;
   position: relative;
   top: 0;
   width: 100%;
   height: 100vh;
-  background: #fff;
-  clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+  background: #000;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s cubic-bezier(0.65, 0, 0.35, 1),
+    transform 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+  overflow: hidden;
 }
 
+.img-holder.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.img-holder picture,
 .img-holder img {
-  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1);
+  transition: transform 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.img-holder.visible picture,
+.img-holder.visible img {
   transform: scale(1);
 }
+
+.img-holder::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    transparent 20%,
+    transparent 80%,
+    rgba(0, 0, 0, 0.3)
+  );
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+.img-holder.visible::after {
+  opacity: 1;
+}
+
 .letters {
   flex: 1;
   display: flex;
@@ -121,4 +173,655 @@ img {
   position: relative;
   left: 30%;
   margin: 4em 0;
+}
+
+.scroll-trigger {
+  transform: translateY(0);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-trigger:hover {
+  transform: translateY(2px);
+}
+
+.scroll-trigger button {
+  position: relative;
+  min-width: 220px;
+  isolation: isolate;
+  transform-origin: center;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: visible;
+  transform-style: preserve-3d;
+}
+
+.scroll-trigger button::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: radial-gradient(
+    circle at center,
+    rgba(228, 170, 129, 0.2),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 9999px;
+  filter: blur(5px);
+}
+
+.scroll-trigger button:hover::before {
+  opacity: 1;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.scroll-trigger button:active {
+  transform: translateZ(0) scale(0.97);
+  box-shadow: 0 0 20px rgba(209, 142, 108, 0.3),
+    0 0 40px rgba(209, 142, 108, 0.1);
+}
+
+.scroll-trigger button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.4) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-trigger button:active::after {
+  opacity: 1;
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.scroll-trigger button {
+  background-size: 200% auto;
+  animation: shimmer 8s linear infinite;
+}
+
+.scroll-trigger button {
+  animation: none;
+}
+
+.scroll-trigger button:hover {
+  transform: translateZ(10px);
+  box-shadow: 0 0 30px rgba(209, 142, 108, 0.4),
+    0 0 60px rgba(209, 142, 108, 0.2), 0 0 100px rgba(209, 142, 108, 0.1);
+}
+
+.scroll-trigger button:active {
+  transform: translateZ(0) scale(0.97);
+  box-shadow: 0 0 20px rgba(209, 142, 108, 0.3),
+    0 0 40px rgba(209, 142, 108, 0.1);
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-out {
+  animation: fadeOut 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+#moto-img {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#moto-img.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.perspective {
+  perspective: 1000px;
+}
+
+@keyframes particle {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(0);
+    opacity: 0;
+  }
+}
+
+.particles-container::before,
+.particles-container::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transform-origin: center;
+  opacity: 0;
+}
+
+.scroll-trigger button:hover .particles-container::before {
+  --tx: -20px;
+  --ty: -20px;
+  animation: particle 1s infinite;
+}
+
+.scroll-trigger button:hover .particles-container::after {
+  --tx: 20px;
+  --ty: -15px;
+  animation: particle 1.2s infinite 0.2s;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.scroll-trigger button {
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+.scroll-trigger button span {
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-trigger button:hover span {
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.1em;
+}
+
+.scroll-trigger button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(209, 142, 108, 0.5),
+    0 0 30px rgba(209, 142, 108, 0.3);
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.flash-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.3),
+    rgba(228, 170, 129, 0.2),
+    rgba(228, 170, 129, 0.1)
+  );
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(20px);
+  mix-blend-mode: overlay;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.05);
+    filter: blur(10px);
+  }
+}
+
+.fade-out {
+  animation: fadeOut 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.website-content {
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.65, 0, 0.35, 1);
+  will-change: opacity, transform;
+}
+
+.website-content.visible {
+  opacity: 1;
+}
+
+#moto-img {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+  will-change: opacity, transform;
+}
+
+#moto-img.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.img-holder picture,
+.img-holder img {
+  transition: transform 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  will-change: transform;
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #e4aa81;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.content-ripple {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vmax;
+  height: 100vmax;
+  background: radial-gradient(
+    circle,
+    rgba(228, 170, 129, 0.2) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  animation: rippleEffect 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes rippleEffect {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+.floating-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.floating-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(228, 170, 129, 0.3);
+  border-radius: 50%;
+  filter: blur(1px);
+}
+
+.flash-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.2),
+    rgba(228, 170, 129, 0.1)
+  );
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(20px);
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.05);
+    filter: blur(10px);
+  }
+}
+
+.website-content {
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.65, 0, 0.35, 1);
+  will-change: opacity, transform;
+  position: relative;
+}
+
+.website-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(228, 170, 129, 0.1),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+
+.website-content.visible::before {
+  opacity: 1;
+}
+
+#moto-img {
+  position: relative;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+  will-change: opacity, transform;
+  overflow: hidden;
+}
+
+#moto-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(228, 170, 129, 0.2),
+    transparent 20%,
+    transparent 80%,
+    rgba(228, 170, 129, 0.2)
+  );
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+#moto-img.visible::after {
+  opacity: 1;
+}
+
+.transition-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.mask-path {
+  transform-origin: center;
+  transition: all 1s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.button-border {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.border-path {
+  transform-origin: center;
+  animation: borderDash 4s linear infinite;
+}
+
+.button-blob {
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  filter: blur(20px);
+}
+
+.scroll-trigger button:hover .button-blob {
+  opacity: 1;
+}
+
+@keyframes borderDash {
+  0% {
+    stroke-dasharray: 0 400;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dasharray: 400 400;
+    stroke-dashoffset: -400;
+  }
+}
+
+.flash-overlay {
+  clip-path: url(#reveal-mask);
+  background: radial-gradient(
+    circle at center,
+    rgba(228, 170, 129, 0.3),
+    rgba(255, 255, 255, 0.2),
+    rgba(228, 170, 129, 0.1)
+  );
+  filter: url(#goo);
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: blur(0);
+  }
+  50% {
+    transform: scale(1.03) rotate(1deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.05) rotate(-1deg);
+    filter: blur(10px);
+  }
+}
+
+.floating-svg {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  filter: blur(2px);
+  opacity: 0.6;
+}
+
+@keyframes morphBlob {
+  0%,
+  100% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  }
+  33% {
+    border-radius: 72% 28% 30% 70% / 53% 51% 49% 47%;
+  }
+  66% {
+    border-radius: 38% 62% 63% 37% / 43% 44% 56% 57%;
+  }
+}
+
+.button-blob path {
+  animation: morphBlob 10s linear infinite;
+}
+
+.initial-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.initial-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  top: 50%;
+  left: 50%;
+  background: #e4aa81;
+  border-radius: 50%;
+  opacity: 0;
+  transform-origin: center;
+  box-shadow: 0 0 10px rgba(228, 170, 129, 0.5);
+}
+
+.transition-ripple {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100vmax;
+  height: 100vmax;
+  background: radial-gradient(
+    circle,
+    rgba(228, 170, 129, 0.2) 0%,
+    rgba(228, 170, 129, 0.1) 30%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 60;
+}
+
+.bg-gradient-to-b {
+  transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 1s cubic-bezier(0.65, 0, 0.35, 1);
+  will-change: transform, opacity;
+}
+
+.bottom-0 {
+  transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+  will-change: transform, opacity;
+}
+
+#logo {
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1), margin 0.5s ease;
+  will-change: transform, opacity;
+  transform-origin: center center;
+}
+
+/* Update the mobile styles for better centering */
+@media (max-width: 768px) {
+  /* Center both logo and button container */
+  .absolute.z-10.top-1/2.left-1/2.transform.-translate-x-1/2.-translate-y-1/2 {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  /* Reset logo margins and adjust position */
+  #logo {
+    margin: 0 !important;
+    padding: 0;
+    transform: translateY(0);
+    max-width: 70% !important;
+  }
+
+  /* Position the button relative to the container */
+  .scroll-trigger {
+    position: relative;
+    transform: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Adjust button hover state for mobile */
+  .scroll-trigger:hover {
+    transform: translateY(2px);
+  }
+
+  /* Remove any existing margins/padding that might affect centering */
+  .scroll-trigger,
+  #logo {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Adjust the gap between logo and button */
+  .scroll-trigger {
+    margin-top: 20px !important;
+  }
+
+  /* Ensure the container takes full height */
+  #header {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Add smooth transition for position changes */
+.scroll-trigger {
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#logo {
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1), margin 0.5s ease;
 }
