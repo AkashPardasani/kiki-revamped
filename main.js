@@ -101,9 +101,9 @@ function generateBlogHTML(blog, index) {
       blog.title
     }" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
         </div>
-        <div class="p-6 sm:p-8 flex flex-col h-[calc(100%-400px)]">
+        <div class="p-6 sm:p-8 flex flex-col min-h-[250px]">
           <span class="text-[#E4AA81] text-sm font-medium tracking-wider uppercase mb-3">Featured Story</span>
-          <h2 class="text-[#F9E7DA] text-2xl sm:text-3xl md:text-4xl font-['Vanitas'] mb-4 leading-tight uppercase line-clamp-2 group-hover:text-[#E4AA81] transition-colors duration-300">
+          <h2 class="text-[#F9E7DA] text-2xl sm:text-3xl md:text-4xl font-['Vanitas'] mb-4 leading-tight uppercase line-clamp-3 group-hover:text-[#E4AA81] transition-colors duration-300">
             ${blog.title}
           </h2>
           <p class="text-[#F9E7DA]/70 text-base sm:text-lg flex-grow mb-6 line-clamp-3">
