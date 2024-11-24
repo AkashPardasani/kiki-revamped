@@ -109,7 +109,7 @@ function generateBlogHTML(blog, index) {
           <p class="text-[#F9E7DA]/70 text-base sm:text-lg flex-grow mb-6 line-clamp-3">
             ${stripHtml(blog.shortContent).substring(0, 150)}...
           </p>
-          <a href="https://shop.kikibeauty.in/blog/${
+          <a href="https://shop.kikibeauty.in/blogs/${
             blog.id
           }" class="group/btn bg-transparent text-[#E4AA81] font-bold py-3 px-6 border border-[#E4AA81] rounded-full hover:bg-[#E4AA81] hover:text-black transition-all duration-300 text-base uppercase tracking-wider flex items-center w-fit">
             Read Article
@@ -146,7 +146,7 @@ function generateBlogHTML(blog, index) {
                 ${stripHtml(blog.shortContent).substring(0, 150)}...
               </p>
             </div>
-            <a href="https://shop.kikibeauty.in/blog/${
+            <a href="https://shop.kikibeauty.in/blogs/${
               blog.id
             }" class="group/btn bg-transparent text-[#E4AA81] font-bold py-3 px-6 border border-[#E4AA81] rounded-full hover:bg-[#E4AA81] hover:text-black transition-all duration-300 text-base uppercase tracking-wider flex items-center w-fit">
               Read Article
@@ -183,7 +183,7 @@ function generateBlogHTML(blog, index) {
               ${blog.title}
             </h2>
           </div>
-          <a href="https://shop.kikibeauty.in/blog/${blog.id}" class="group/btn text-[#E4AA81] text-lg font-bold hover:text-[#F9E7DA] transition-colors duration-300 flex items-center uppercase">
+          <a href="https://shop.kikibeauty.in/blogs/${blog.id}" class="group/btn text-[#E4AA81] text-lg font-bold hover:text-[#F9E7DA] transition-colors duration-300 flex items-center uppercase">
             Read Article 
             <span class="ml-2 text-2xl transform group-hover/btn:translate-x-2 transition-transform duration-300">&rarr;</span>
           </a>
