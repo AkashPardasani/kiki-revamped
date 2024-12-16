@@ -1010,6 +1010,56 @@
                   For the dusky daring and f*cking ravishing.
                 </p>
 
+                <div class="mt-8">
+                  <h4 class="text-lg font-['Vanitas'] mb-4">
+                    Subscribe to our newsletter
+                  </h4>
+                  <form id="newsletterForm" class="flex flex-col gap-4">
+                    <div class="flex">
+                      <input
+                        type="email"
+                        id="newsletterEmail"
+                        placeholder="Enter your email"
+                        class="text-white px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-[#E4AA81] flex-grow bg-black/50 border border-[#E4AA81]/30 transition-all duration-300"
+                      />
+                      <button
+                        type="submit"
+                        id="newsletterSubmit"
+                        class="bg-[#E4AA81] text-black px-6 py-2 rounded-r-lg font-bold hover:bg-[#F9E7DA] transition-all duration-300 flex items-center gap-2"
+                      >
+                        <span>Subscribe</span>
+                        <div id="submitSpinner" class="hidden">
+                          <svg
+                            class="animate-spin h-5 w-5"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              class="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              stroke-width="4"
+                            ></circle>
+                            <path
+                              class="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            ></path>
+                          </svg>
+                        </div>
+                      </button>
+                    </div>
+                    <div
+                      id="newsletterMessage"
+                      class="text-sm transition-all duration-300 overflow-hidden h-0"
+                    ></div>
+                  </form>
+                </div>
+                
+
                 <!-- New Contact Section -->
                 <div class="space-y-4">
                   <h3
